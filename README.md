@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-|  | COPT | GUROBI |
+|  | COPT 5.0.1 | GUROBI 9.5.1 |
 |:---: | :---: | :---    |
 |**Installation** | pip install `coptpy` | pip install `gurobipy` |
 
