@@ -1,5 +1,10 @@
 # Python Interface: COPT vs GUROBI
 
+## Prerequisite
+
+|  | COPT | GUROBI |
+|:---: | :---: | :---    |
+|**Installation** | pip install `coptpy` | pip install `gurobipy` |
 
 ## Main Features
 ```bash
@@ -47,8 +52,8 @@
 ||COPT| ```model.setMipStart(vars[i], 0.0)``` <br> ```model.loadMipStart()``` | 
 ||GUROBI |```vars[i].Start = 0.0``` |
 | 2||**Add Constraints with Two Bounds**| 
-||COPT | ```for c in c_list:``` </br>&nbsp;&nbsp;&nbsp;&nbsp;```m.addConstr(cp.quicksum(``` </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ```coef[i, c] * vars[f] for i in vlist) == [constr_lower[c], constr_upper[c]], c)``` |
-||GUROBI | ```m.addConstrs(gp.quicksum(``` </br>&nbsp;&nbsp;&nbsp;&nbsp; ```coef[i, c] * vars[f] for i in vlist) == [constr_lower[c], constr_upper[c]] for c in c_list, "_")``` |
+||COPT | ```for c in c_list:``` </br>&nbsp;&nbsp;&nbsp;&nbsp;```m.addConstr(cp.quicksum(``` </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ```coef[i, c] * vars[f] for i in vlist) == [lower[c], upper[c]], c)``` |
+||GUROBI | ```m.addConstrs(gp.quicksum(``` </br>&nbsp;&nbsp;&nbsp;&nbsp; ```coef[i, c] * vars[f] for i in vlist) == [lower[c], upper[c]] for c in c_list, "_")``` |
 |3||**Linear Expression** | 
 ||COPT |```expr = LinExpr(1.0)``` <br> ```expr.addTerm(x, 2.0)``` |
 ||GUROBI | ```expr = LinExpr(1.0)``` <br> ```expr.addTerm(2.0, x)``` |
