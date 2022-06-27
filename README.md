@@ -20,8 +20,10 @@
 ||COPT| import `coptpy` as `cp` <br> from `coptpy` import `COPT` 
 ||GUROBI| import `gurobipy` as `gp` <br>  from `gurobipy` as `GRB` |
 | **2** | | **Create Model** |
-||COPT  | ```env = cp.Envr()``` <br> ```model = env.createModel('sudoku')``` 
+||COPT  | ```env = cp.Envr()``` <br> ```model = env.createModel('sudoku')``` |
 ||GUROBI| ```model = gp.Model('sudoku')``` |
+| **2.1** | | **Create Model with Remote Server** |
+||COPT  | ```config = cp.EnvConfig()``` <br> ```confit.set("cluster", "192.168.9.9")``` <br> ```env = cp.Envr(config)``` <br> ```model = env.createModel('sudoku')``` |
 | **3** ||**Add Variables**  | 
 ||COPT  |``` vars = model.addVars(n, n, n, vtype=COPT.BINARY, nameprefix='G') ``` 
 ||GUROBI| ``` vars = model.addVars(n, n, n, vtype=GRB.BINARY, name='G') ``` |
